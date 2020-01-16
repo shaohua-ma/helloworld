@@ -1,7 +1,11 @@
 language: java
 # would just use default install/script but the ./mvnw script errors on travis
 # obviously this only works for maven builds right now...
-install:
-- mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
-script:
-- mvn test
+# install:
+# - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+# script:
+# - mvn test
+# 4 lines commented out. working.
+# modified install and script per https://blog.frankel.ch/travis-ci-tutorial-for-java-projects/
+install: true
+script: mvn clean install
