@@ -5,11 +5,11 @@ language: java
 services:
   - docker
 
-before_install:
-  - docker build -t helloworld .
-  - docker run -d -p 127.0.0.1:8080:8080 helloworld
+before_install: true
+#  - docker build -t helloworld .
+#  - docker run -d -p 127.0.0.1:8080:8080 helloworld
 #  carlad/sinatra /bin/sh -c "cd /root/sinatra; bundle exec foreman start;"
-  - docker ps -a
+#  - docker ps -a
 #  - docker run carlad/sinatra /bin/sh -c "cd /root/sinatra; bundle exec rake test"
 # masn. end docker
 
@@ -22,4 +22,12 @@ before_install:
 # 4 lines commented out. working.
 # modified install and script per https://blog.frankel.ch/travis-ci-tutorial-for-java-projects/
 install: true
-script: mvn clean install
+script: 
+  - mvn clean install
+# used to be following "before_install"
+  - docker build -t helloworld .
+  - docker run -d -p 127.0.0.1:8080:8080 helloworld
+#  carlad/sinatra /bin/sh -c "cd /root/sinatra; bundle exec foreman start;"
+  - docker ps -a
+#  - docker run carlad/sinatra /bin/sh -c "cd /root/sinatra; bundle exec rake test"
+# masn. end docker
