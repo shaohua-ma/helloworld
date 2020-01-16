@@ -31,5 +31,6 @@ script:
   - docker ps -a
 #  - docker run carlad/sinatra /bin/sh -c "cd /root/sinatra; bundle exec rake test"
 # test helloworld app
+  - sleep 15
   - "curl http://127.0.0.1:8080"
 # masn. end docker
